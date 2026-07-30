@@ -1,1 +1,22 @@
-Hello
+name: Hello world workflow
+
+# events that trigger this workflow
+on: 
+#triggers on push to a branch
+  push:
+    branches: [dev, staging]
+
+   #allows manual trigging form the actions tab
+  workflow_dispatch:
+
+  #jobs to run
+  jobs:
+    #jobs ID or name
+   greet:
+    #the type of runner to use
+    runs-on: windows-latest
+
+    #steps to execute in this job
+    steps: 
+      - name: say Hello
+        run: echo "Hello world"
